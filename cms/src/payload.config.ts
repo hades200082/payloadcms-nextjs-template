@@ -9,7 +9,8 @@ import { buildConfig } from "payload/config";
 import Users from "./collections/Users";
 import seo from "@payloadcms/plugin-seo";
 import Pages from "./collections/Pages";
-import {HeroImages, SeoImages} from "./collections/MediaLibrary";
+import Settings from "./globals/Settings";
+import MediaLibraries from "./collections/MediaLibrary";
 import {cloudStorage} from "@payloadcms/plugin-cloud-storage";
 import {azureBlobStorageAdapter} from "@payloadcms/plugin-cloud-storage/azure";
 
@@ -29,13 +30,15 @@ export default buildConfig({
 	collections: [
 		// configuration
 		Users,
-  
+
 		// content
 		Pages,
-  
+
 		// media
-		HeroImages,
-		SeoImages
+		...MediaLibraries
+	],
+	globals: [
+		Settings
 	],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
@@ -53,6 +56,12 @@ export default buildConfig({
 					prefix: "hero-images",
 					adapter: storageAdapter, // see docs for the adapter you want to use
 				},
+				"content-images": {
+					disableLocalStorage: true,
+					disablePayloadAccessControl: true,
+					prefix: "content-images",
+					adapter: storageAdapter, // see docs for the adapter you want to use
+				},
 				"seo-images": {
 					disableLocalStorage: true,
 					disablePayloadAccessControl: true,
@@ -60,7 +69,7 @@ export default buildConfig({
 					adapter: storageAdapter, // see docs for the adapter you want to use
 				},
 			},
-   
+
 		}),
 		seo({
 			collections: [
@@ -68,14 +77,14 @@ export default buildConfig({
 			],
 			uploadsCollection: "seo-images",
 			tabbedUI: true,
-		 
+
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-expect-error
 			generateTitle: ({ doc }) => `${doc.title.value} | Lee Conlin`,
-		
+
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-expect-error
-			generateDescription: ({ doc }) => doc.summary,
+			generateDescription: ({ doc }) => `${doc.summary.value}`,
 		})
 	],
 	db: mongooseAdapter({

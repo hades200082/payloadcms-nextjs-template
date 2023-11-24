@@ -11,7 +11,11 @@ const Pages: CollectionConfig = {
 	admin: {
 		useAsTitle: "title",
 		group: "Content",
-		defaultColumns: ["title", "slug", "summary", "createdAt"]
+		defaultColumns: ["title", "slug", "summary", "createdAt"],
+	},
+	versions: {
+		drafts: { autosave: true },
+		maxPerDoc: 100,
 	},
 	access: {
 		read: () => true,
@@ -51,7 +55,6 @@ const Pages: CollectionConfig = {
 				label: "Slug",
 				admin: {
 					position: "sidebar",
-					description: "The slug is typically used in URLs on websites.",
 				}
 			},
 			{
@@ -59,7 +62,7 @@ const Pages: CollectionConfig = {
 				appendOnDuplication: true,
 			}
 			,{
-				enable: true,
+				enable: true
 			}
 		),
 	]

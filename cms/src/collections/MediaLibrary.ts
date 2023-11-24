@@ -46,20 +46,26 @@ export const HeroImages: CollectionConfig = {
 		],
 		mimeTypes: ["image/*"]
 	},
-	fields:[]
+	fields:[
+		{
+			type: "text",
+			name: "alt",
+			label: "Alt text"
+		}
+	]
 };
 
-export const SeoImages: CollectionConfig = {
-	slug: "seo-images",
+export const ContentImages: CollectionConfig = {
+	slug: "content-images",
 	admin:{
 		group: "Media Library"
 	},
 	access: {
 		read: () => true,
-	},upload: {
+	},
+	upload: {
 		crop: true,
 		focalPoint: true,
-		adminThumbnail: "thumbnail",
 		imageSizes: [
 			{
 				name: "thumbnail",
@@ -103,3 +109,42 @@ export const SeoImages: CollectionConfig = {
 		}
 	]
 };
+
+export const SeoImages: CollectionConfig = {
+	slug: "seo-images",
+	admin:{
+		group: "Media Library"
+	},
+	access: {
+		read: () => true,
+	},
+	upload: {
+		crop: true,
+		focalPoint: true,
+		adminThumbnail: "thumbnail",
+		imageSizes: [
+			{
+				name: "thumbnail",
+				width: 400,
+				height: 300,
+				position: "center"
+			},
+			{
+				name: "opengraph",
+				width: 1200,
+				height: 630,
+				position: "center"
+			}
+		],
+		mimeTypes: ["image/*"]
+	},
+	fields:[
+		{
+			type: "text",
+			name: "alt",
+			label: "Alt text"
+		}
+	]
+};
+
+export default [HeroImages, ContentImages, SeoImages];

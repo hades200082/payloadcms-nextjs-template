@@ -51,6 +51,7 @@ const start = async () => {
 	});
 
 	// Add your own express routes here
+	app.use(express.static("public")); // serve static assets from the public folder using express
 
 	app.listen(process.env.PORT || 3001);
 };

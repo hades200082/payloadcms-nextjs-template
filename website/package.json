@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:zodSchema": "runtyping"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
+    "escape-html": "^1.0.3",
     "next": "14.0.3",
+    "qs": "^6.11.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.0.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",

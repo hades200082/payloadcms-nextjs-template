@@ -1,4 +1,10 @@
-- [ ] Hero
+- [x] HeroBlock
+- [x] Rich text block
+  - Basic RT only - no embeds
+- [x] Image block
+  - [ ] Options for things like aspect ratio
+  - [x] Support for SVG, JPG, PNG, WEBP
+- [x] CTA block
 - [ ] Form block
 - [ ] Code block
   - [ ] Long snippet with/without copy/line numbers
@@ -15,9 +21,4 @@
     - steam link if poss
     - Options to override any of the above if steam game not selected
   - [ ] Stat card
-- [ ] Rich text block
-  - Basic RT only - no embeds
 - [ ] Youtube video block
-- [ ] Image block
-  - Options for things like aspect ratio
-  - Support for SVG, JPG, PNG, WEBP

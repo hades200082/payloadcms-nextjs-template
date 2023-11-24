@@ -4,10 +4,10 @@ import Blocks from "./index";
 const ContainerBlock: Block = {
 	slug: "container",
 	labels: {
-		plural: "Containers",
-		singular: "Container"
+		plural: "Containers/Columns",
+		singular: "Container/Columns"
 	},
-	imageURL: "/built-in/block-thumbnails/container.png",
+	imageURL: "/block-thumbnails/container.png",
 	fields: [
 		{
 			name: "type",
@@ -20,6 +20,7 @@ const ContainerBlock: Block = {
 				{ label: "Full", value: "full" },
 				{ label: "Columns", value: "columns" },
 			],
+			required: true
 		},
 		{
 			name: "content",
@@ -59,7 +60,7 @@ const ContainerBlock: Block = {
 					min: 10,
 					max: 100,
 					admin: {
-						description: "On smaller devices width may be ignored and columns may be stacked."
+						description: "Columns without a width will be distributed to take the remaining space. On smaller devices width may be ignored and columns may be stacked."
 					}
 				},
 				{
@@ -70,6 +71,7 @@ const ContainerBlock: Block = {
 					blocks: [
 						...Blocks
 					],
+					required: true
 				},
 			]
 		}

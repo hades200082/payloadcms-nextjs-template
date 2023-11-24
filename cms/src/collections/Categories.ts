@@ -11,6 +11,9 @@ const Categories: CollectionConfig = {
 		group: "Taxonomy",
 		useAsTitle: "name",
 	},
+	access: {
+		read: () => true
+	},
 	fields: [
 		{
 			name: "name",
