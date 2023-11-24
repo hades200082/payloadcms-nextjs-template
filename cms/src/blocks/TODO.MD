@@ -1,0 +1,23 @@
+- [ ] Hero
+- [ ] Form block
+- [ ] Code block
+  - [ ] Long snippet with/without copy/line numbers
+  - [ ] Command line with copy option
+  - [ ] Support for all programming languages
+- [ ] Card
+  - [ ] Basic card
+    - with/without image
+    - with/without link
+    - with/without summary
+  - [ ] Game card
+    - fetch game image from steam if poss
+    - fetch game description & name from steam if poss
+    - steam link if poss
+    - Options to override any of the above if steam game not selected
+  - [ ] Stat card
+- [ ] Rich text block
+  - Basic RT only - no embeds
+- [ ] Youtube video block
+- [ ] Image block
+  - Options for things like aspect ratio
+  - Support for SVG, JPG, PNG, WEBP

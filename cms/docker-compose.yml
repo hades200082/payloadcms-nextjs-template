@@ -1,0 +1,26 @@
+version: '3.9'
+name: leeconlin-cms
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - mongo-volume:/data/db
+    logging:
+      driver: none
+
+  azurite:
+    container_name: azurite
+    image: "mcr.microsoft.com/azure-storage/azurite"
+    restart: unless-stopped
+    ports:
+      - "10000-10002:10000-10002"
+    volumes:
+      - azurite-volume:/data
+
+volumes:
+  mongo-volume:
+  azurite-volume:
